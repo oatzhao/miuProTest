@@ -1,3 +1,5 @@
+package Lesson2;
+
 import java.util.Map;
 
 public class Prog6 {

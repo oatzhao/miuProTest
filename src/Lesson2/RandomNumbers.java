@@ -1,3 +1,5 @@
+package Lesson2;
+
 import java.util.*;
 
 /**
@@ -18,7 +20,7 @@ public class RandomNumbers {
 
     /**
      *  Use this method to get a random integer, with a call like this:
-     *     int myInt = RandomNumbers.getRandomInt();
+     *     int myInt = Lesson2.RandomNumbers.getRandomInt();
      */
     public static int getRandomInt() {
         if(random == null) new RandomNumbers();

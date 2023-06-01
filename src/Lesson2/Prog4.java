@@ -1,3 +1,5 @@
+package Lesson2;
+
 public class Prog4 {
     public static void main(String[] args){
         float f1 = 1.27f;

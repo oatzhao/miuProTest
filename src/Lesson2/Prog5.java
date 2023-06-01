@@ -1,3 +1,5 @@
+package Lesson2;
+
 public class Prog5 {
     public static int[] combine(int[] a, int[] b){
         int[] c = new int[a.length + b.length];
