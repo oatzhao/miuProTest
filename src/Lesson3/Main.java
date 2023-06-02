@@ -90,30 +90,31 @@ public class Main {
 //        System.out.println( "Date of Birth :" +heartRates.getBirthDate());
 //        System.out.println("Maximum Heart Rate :" + mhr);
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter C for Circle");
-        System.out.println("Enter R for Rectangle");
-        System.out.println("Enter T for Triangle");
-        String str = sc.next();
-        if(str.equals("C")){
-            System.out.println("Enter the radius of the Circle");
-            double radius = Double.valueOf(sc.next());
-            Circle  c = new Circle(radius);
-            System.out.println("The area of Rectangle is :" + c.computeArea(radius));
-        }else if(str.equals("R")){
-            System.out.println("Enter the width of the Rectangle");
-            double width = Double.valueOf(sc.next());
-            System.out.println("Enter the height of the Rectangle");
-            double height = Double.valueOf(sc.next());
-            Rectangle r = new Rectangle(width, height);
-            System.out.println("The area of Rectangle is :" + r.computeArea(width, height));
-        }else{
-            System.out.println("Enter the base of the Triangle");
-            double base = Double.valueOf(sc.next());
-            System.out.println("Enter the height of the Triangle");
-            double height = Double.valueOf(sc.next());
-            Triangle t = new Triangle(base, height);
-            System.out.println("The area of Rectangle is :" + t.computeArea(base, height));
-        }
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Enter C for Circle");
+//        System.out.println("Enter R for Rectangle");
+//        System.out.println("Enter T for Triangle");
+//        String str = sc.next();
+//        if(str.equals("C")){
+//            System.out.println("Enter the radius of the Circle");
+//            double radius = Double.valueOf(sc.next());
+//            Circle  c = new Circle(radius);
+//            System.out.println("The area of Rectangle is :" + c.computeArea(radius));
+//        }else if(str.equals("R")){
+//            System.out.println("Enter the width of the Rectangle");
+//            double width = Double.valueOf(sc.next());
+//            System.out.println("Enter the height of the Rectangle");
+//            double height = Double.valueOf(sc.next());
+//            Rectangle r = new Rectangle(width, height);
+//            System.out.println("The area of Rectangle is :" + r.computeArea(width, height));
+//        }else{
+//            System.out.println("Enter the base of the Triangle");
+//            double base = Double.valueOf(sc.next());
+//            System.out.println("Enter the height of the Triangle");
+//            double height = Double.valueOf(sc.next());
+//            Triangle t = new Triangle(base, height);
+//            System.out.println("The area of Rectangle is :" + t.computeArea(base, height));
+//        }
+
     }
 }
