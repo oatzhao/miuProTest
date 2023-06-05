@@ -1,4 +1,4 @@
-package Lecture3;
+package Lecture3a;
 
 import java.time.LocalDate;
 import java.time.Period;

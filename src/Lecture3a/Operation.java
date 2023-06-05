@@ -1,4 +1,4 @@
-package Lecture3;
+package Lecture3a;
 
 public class Operation {
     int data = 50;
