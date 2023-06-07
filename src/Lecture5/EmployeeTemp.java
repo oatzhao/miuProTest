@@ -2,12 +2,12 @@ package Lecture5;
 
 import java.time.LocalDate;
 
-public class Employee {
+public class EmployeeTemp {
     private String name;
     private double salary;
     private LocalDate hireDay;
 
-    Employee(String aName, double aSalary, int aYear, int aMonth, int aDay){
+    EmployeeTemp(String aName, double aSalary, int aYear, int aMonth, int aDay){
         name = aName;
         salary = aSalary;
         hireDay = LocalDate.of(aYear, aMonth, aDay);

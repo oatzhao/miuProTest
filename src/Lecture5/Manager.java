@@ -1,6 +1,6 @@
 package Lecture5;
 
-public class Manager extends Employee{
+public class Manager extends EmployeeTemp {
     private double bonus;
 
     public Manager(String aName, double aSalary, int aYear, int aMonth, int aDay) {
