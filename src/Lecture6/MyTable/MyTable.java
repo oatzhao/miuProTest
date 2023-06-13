@@ -3,17 +3,31 @@ package Lecture6.MyTable;
 public class MyTable {
     private Entry[] entries;
 
+    MyTable(){
+        entries = new Entry[26];
+    }
+
     public String get(char c){
-//implement
+        for(Entry e: entries){
+            if(e != null && e.ch == c)
+                return e.str;
+        }
         return null;
     }
-    //adds to the table a pair (c, s) so that s can be looked up using c
-    public void add(char c, String s) {
 
+    public void add(char c, String s) {
+        int charInt = (int)c;
+        entries[charInt - 97] = new Entry(c, s);
     }
 
     public String toString() {
-        return null;
+        String str = "";
+        for(Entry entry: entries){
+            if(entry!=null){
+                str+=entry+"\n";
+            }
+        }
+        return str;
     }
 
     private class Entry {
@@ -32,7 +46,12 @@ public class MyTable {
 
     public static void main(String[] args) {
         MyTable myTable = new MyTable();
-        Entry[] entries = new Entry[26];
+        myTable.add('A', "hfaiwe");
+        myTable.add('B', "dhwuie");
+        myTable.add('C', "bua");
 
+        String s = myTable.get('B');
+        System.out.println(s);
+        System.out.println(myTable);
     }
 }
