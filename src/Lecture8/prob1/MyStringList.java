@@ -1,23 +1,23 @@
-package Lecture8;
+package Lecture8.prob1;
 
 import java.util.Arrays;
 
 public class MyStringList {
     private final int INITIAL_LENGTH = 4;
-    private String[] currentArray;
+    private Person[] currentArray;
     private int size;
     public MyStringList(){
-        currentArray = new String[INITIAL_LENGTH ];
+        currentArray = new Person[INITIAL_LENGTH];
         size = 0;
     }
 
-    public void add(String s){
+    public void add(Person s){
         if(s == null) return;
         if(size == currentArray.length) resize();
         currentArray[size++] = s;
     }
 
-    public String get(int i){
+    public Person get(int i){
         if(i < 0 || i >= size){
             return null;
         }
@@ -28,26 +28,26 @@ public class MyStringList {
         System.out.println("resizing");
         int len = currentArray.length;
         int newlen = 2*len;
-        String[] newArray = new String[newlen];
+        Person[] newArray = new Person[newlen];
         System.arraycopy(currentArray, 0,  newArray, 0, len);
         currentArray = newArray;
     }
 
-    public boolean find(String s){
+    public boolean find(Person s){
         if(s == null) return false;
-        for(String test: currentArray){
+        for(Person test: currentArray){
             if(test.equals(s)) return true;
         }
 
         return false;
     }
 
-    public void insert(String s, int pos){
+    public void insert(Person s, int pos){
         if(pos > size || pos < 0) return;
         if(pos == currentArray.length || size + 1 > currentArray.length){
             resize() ;
         }
-        String[] temp = new String[currentArray.length];
+        Person[] temp = new Person[currentArray.length];
         System.arraycopy(currentArray, 0, temp, 0, pos);
         temp[pos] = s;
 
@@ -66,7 +66,7 @@ public class MyStringList {
             }
         }
         if(index == -1) return false;
-        String[] temp = new String[currentArray.length];
+        Person[] temp = new Person[currentArray.length];
         System.arraycopy(currentArray, 0, temp, 0, index);
         System.arraycopy(currentArray, index+1, temp, index, currentArray.length-(index+1));
         currentArray= temp;
@@ -86,7 +86,7 @@ public class MyStringList {
  public int size(){return size;}
  public boolean isEmpty(){return (size == 0);}
  public Object clone(){
-        String[] temp = Arrays.copyOf(currentArray, size);
+        Person[] temp = Arrays.copyOf(currentArray, size);
         return temp;
  }
 
@@ -117,20 +117,31 @@ public class MyStringList {
         return pos;
     }
 
+    public Person search(String lastname){
+        if(lastname == null) return null;
+        for(Person test: currentArray){
+            if(test.getLast().equalsIgnoreCase(lastname)) {
+                return test;
+            }
+        }
+        return null;
+    }
 
     public static void main(String[] args){
         MyStringList l = new MyStringList();
-        l.add("Bob");
-        l.add("Steve");
-        l.add("Susan");
-        l.add("Mark");
-        l.add("Joe");
+        l.add(new Person("Bob", "x", 4));
+        l.add(new Person("Steve", "y", 3));
+        l.add(new Person("Susan", "z", 3));
+
         System.out.println("Number of elements:" + l.size);
         System.out.println("Length of the current array:" + l.currentArray.length);
+        System.out.println(l.search("Susan"));
 
-        l.insert("" ,2);
-        l.insert("" ,5);
-        l.insert("" ,7);
+//        int[] ints = {1, 3, 4};
+//        List<Integer> list = new ArrayList<Integer>();
+//        for(int i = 0; i < ints.length; ++i){
+//            list.add(ints[i]);
+//        }
 
     }
 }

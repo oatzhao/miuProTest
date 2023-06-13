@@ -1,7 +1,5 @@
 package Lecture6;
 
-import com.sun.codemodel.internal.util.ClassNameComparator;
-
 import java.util.Arrays;
 
 public class prepareData {
