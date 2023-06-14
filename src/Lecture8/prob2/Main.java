@@ -3,6 +3,9 @@ package Lecture8.prob2;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import java.util.*;
+
+import static Lecture8.prob2.Statistics.computeSumOfSalaries;
+
 public class Main {
 
 	/** Combines the lists that are populated here into a single list
@@ -25,18 +28,18 @@ public class Main {
 		
 		//Implementation steps
 		//Step 1: implement the combine method, to combine the two lists
-		List<Object> combined = combine(staff, teachers);
+		List<EmployeeData> combined = combine(staff, teachers);
 		System.out.println(combined);
 		
 		//Step 2: pass the combined list to computeSumOfSalaries
-		double salarySum = Statistics.computeSumOfSalaries(combined);
+		double salarySum = computeSumOfSalaries(combined);
 		System.out.println(salarySum);
 		
 	}
 	
 	//IMPLEMENT
-	public static List<Object> combine(List<Staff> staff, List<Teacher> teachers) {
-		ArrayList<Object> merge = new ArrayList<Object>();
+	public static List<EmployeeData> combine(List<Staff> staff, List<Teacher> teachers) {
+		ArrayList<EmployeeData> merge = new ArrayList<EmployeeData>();
 		if(staff == null || teachers == null) return null;
 		merge.addAll(staff);
 		merge.addAll(teachers);
