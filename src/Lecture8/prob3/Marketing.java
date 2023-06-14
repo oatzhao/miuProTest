@@ -6,9 +6,9 @@ import java.util.Objects;
 public class Marketing{
     private String employeename;
     private String productname;
-    private int salesamount;
+    private String salesamount;
 
-    Marketing(String employeename, String productname, int salesamount){
+    Marketing(String employeename, String productname, String salesamount){
         this.employeename = employeename;
         this.productname = productname;
         this.salesamount = salesamount;
@@ -22,7 +22,7 @@ public class Marketing{
         return productname;
     }
 
-    public int getSalesamount() {
+    public String getSalesamount() {
         return salesamount;
     }
 
@@ -37,7 +37,9 @@ public class Marketing{
                 || (this.employeename != null && this.employeename.equals(marketing.employeename));
         boolean productNameEquals = (this.productname == null && marketing.productname == null)
                 || (this.productname != null && this.productname.equals(marketing.productname ));
-        return this.salesamount == marketing.salesamount && employeeNameEquals && productNameEquals;
+        boolean salesAmountEquals = (this.salesamount == null && marketing.salesamount == null)
+                || (this.salesamount != null && this.salesamount.equals(marketing.salesamount ));
+        return salesAmountEquals && employeeNameEquals && productNameEquals;
 
     }
 
