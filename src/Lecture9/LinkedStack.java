@@ -1,6 +1,5 @@
 package Lecture9;
 
-import static java.lang.System.currentTimeMillis;
 import static java.lang.System.exit;
 
 public class LinkedStack {
