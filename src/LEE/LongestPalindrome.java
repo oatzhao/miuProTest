@@ -1,37 +1,32 @@
 package LEE;
 
 public class LongestPalindrome {
-    public static int expend(String s, int i, int j){
-        int L=i, R=j;
-        while (L>=0 && R<s.length() && s.charAt(L)==s.charAt(R)){
-            L--;
-            R++;
+    public static String expend(String s, int i, int j){
+        String subStr="";
+        int l=i, r=j;
+        while(l>0&&r<s.length()&&s.charAt(l)==s.charAt(r)){
+            subStr=s.substring(l, r+1);
+            l--;
+            r++;
         }
-        return R-L-1;
+        return subStr;
     }
 
     public static String longestPalindrome(String s){
-        if(s.length() < 1) return "";
-
-        int startIndex = 0;
-        int endIndex = 0;
-
+        String maxStr="";
         for(int i=0;i<s.length();i++){
-            int len1 = expend(s, i, i);
-            int len2 = expend(s, i, i+1);
-            int len = Math.max(len1, len2);
-            if(len>endIndex-startIndex){
-                startIndex = i-(len-1)/2;
-                endIndex = i+len/2;
-            }
+            String oddStr=expend(s, i, i);
+            String evenStr=expend(s, i, i+1);
+            String tempStr=oddStr.length()>evenStr.length()?oddStr:evenStr;
+            if(tempStr.length()>maxStr.length()) maxStr=tempStr;
         }
-        return s.substring(startIndex, endIndex+1);
+        return maxStr;
     }
 
     public static void main(String[] args) {
-        String s = "babad";
+        String s = "cbbd";
         System.out.println(longestPalindrome(s));
-        String s1="hello";
-        System.out.println(s1.substring(1,3));
+//        String s1="hello";
+//        System.out.println(s1.substring(1,3));
     }
 }
