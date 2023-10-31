@@ -39,7 +39,7 @@ public class Main {
 	public static List<EmployeeData> combine(List<Staff> staff, List<Teacher> teachers) {
 		ArrayList<EmployeeData> merge = new ArrayList<EmployeeData>();
 		if(staff == null || teachers == null) return null;
-		merge.addAll(staff);
+		//merge.addAll(staff);
 		merge.addAll(teachers);
 		return merge;
 	}

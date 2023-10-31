@@ -9,5 +9,6 @@ public class Prog1 {
         System.out.println(Math.pow(Math.PI,x));
         int y = rn.getRandomInt(3, 14);
         System.out.println(Math.pow(y,Math.PI));
+        System.out.println(Math.pow(y,Math.PI));
    }
 }

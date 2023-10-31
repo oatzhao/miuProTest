@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/Mpp/libms/libms.iml" filepath="$PROJECT_DIR$/src/Mpp/libms/libms.iml" />
       <module fileurl="file://$PROJECT_DIR$/preTest.iml" filepath="$PROJECT_DIR$/preTest.iml" />
     </modules>
   </component>
