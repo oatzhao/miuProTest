@@ -18,6 +18,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepo productRepo;
+    private final ModelMapper modelMapper;
 
     @Override
     public void create(Product product) {
@@ -58,5 +59,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAllByNameContains(String keyword){
         return productRepo.findAllByNameContains(keyword);
+    }
+
+    @Override
+    public FullProductDto findById(Long id){
+        var product=productRepo.findById(id).orElseThrow(()->new RuntimeException("Product not found"));
+        product.setName("abc");
+        var result = modelMapper.map(product, FullProductDto.class);
+        return result;
     }
 }

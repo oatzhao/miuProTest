@@ -30,4 +30,9 @@ public class CategoryServiceImpl implements CategoryService {
     public void update(Category category) {
 
     }
+
+    @Override
+    public Category findByName(String name) {
+        return null;
+    }
 }

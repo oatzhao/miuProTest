@@ -23,4 +23,6 @@ public interface ProductService {
     List<Product> findAllByPriceGreaterThan(int minPrice);
 
     List<Product> findAllByNameContains(String keyword);
+
+    FullProductDto findById(Long id);
 }

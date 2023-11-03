@@ -25,4 +25,7 @@ public class User {
     @OneToMany
     @JoinColumn(name = "user_id")
     private List<Review> reviews;
+
+    @OneToMany
+    private List<Order> orders;
 }
