@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.ReviewDto;
 import com.example.demo.entity.Category;
 import com.example.demo.entity.Review;
 
@@ -8,13 +9,13 @@ import java.util.List;
 public interface ReviewService {
     void create(Review review);
 
-    List<Review> findAll();
+    List<ReviewDto> findAll();
 
 
 
-    Review getReviewById(Long id);
+    ReviewDto getReviewById(int id);
 
-    void delete(Review review);
+    void delete(int id);
 
     void update(Review review);
 }

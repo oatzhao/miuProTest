@@ -1,13 +1,12 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.aspect.ExcutionTime;
 import com.example.demo.dto.FullProductDto;
-import com.example.demo.dto.SimpleProductDto;
 import com.example.demo.entity.Product;
 import com.example.demo.repository.ProductRepo;
 import com.example.demo.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,6 +19,7 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepo productRepo;
     private final ModelMapper modelMapper;
 
+    @ExcutionTime
     @Override
     public void create(Product product) {
         if (product.getName().length()<5){
@@ -32,40 +32,66 @@ public class ProductServiceImpl implements ProductService {
         productRepo.save(product);
     }
 
+    @ExcutionTime
     @Override
-    public List<Product> findAll() {
-        return productRepo.findAll();
+    public List<FullProductDto> findAll() {
+        List<Product> productList = productRepo.findAll();
+        var result= new ArrayList<FullProductDto>();
+
+        productList.forEach(product -> {
+            var fullProductDto=modelMapper.map(product, FullProductDto.class);
+            result.add(fullProductDto);
+        });
+        return result;
     }
 
+    @ExcutionTime
+    @Override
+    public FullProductDto findById(int id){
+        var product=productRepo.findById(id).orElseThrow(()->new RuntimeException("Product not found"));
+        product.setName("abc");
+        var result = modelMapper.map(product, FullProductDto.class);
+        return result;
+    }
+
+    @ExcutionTime
     public void update(Product product){
         productRepo.save(product);
     }
 
+    @ExcutionTime
     @Override
-    public Product getProductById(Long  id){
-        return productRepo.findById(id).orElse(null);
+    public void delete(int id){
+        productRepo.deleteById(id);
     }
 
+    @ExcutionTime
     @Override
-    public void delete(Product product){
-        productRepo.delete(product);
+    public List<FullProductDto> findAllByPriceGreaterThan(int minPrice){
+        List<Product> productList = productRepo.findAll();
+        var result= new ArrayList<FullProductDto>();
+
+        productList.forEach(product -> {
+            var fullProductDto=modelMapper.map(product, FullProductDto.class);
+            if(fullProductDto.getPrice()>minPrice){
+                result.add(fullProductDto);
+            }
+        });
+        return result;
     }
 
+    @ExcutionTime
     @Override
-    public List<Product> findAllByPriceGreaterThan(int minPrice){
-        return productRepo.findAllByPriceGreaterThan(minPrice);
-    }
+    public List<FullProductDto> findAllByNameContains(String keyword){
+        List<Product> productList = productRepo.findAll();
+        var result= new ArrayList<FullProductDto>();
 
-    @Override
-    public List<Product> findAllByNameContains(String keyword){
-        return productRepo.findAllByNameContains(keyword);
-    }
-
-    @Override
-    public FullProductDto findById(Long id){
-        var product=productRepo.findById(id).orElseThrow(()->new RuntimeException("Product not found"));
-        product.setName("abc");
-        var result = modelMapper.map(product, FullProductDto.class);
+        productList.forEach(product -> {
+            var fullProductDto=modelMapper.map(product, FullProductDto.class);
+            if(fullProductDto.getName().equals(keyword)){
+                result.add(fullProductDto);
+            }
+        });
         return result;
     }
 }

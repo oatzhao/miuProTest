@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SimpleProductDto {
+public class ReviewDto {
     private int id;
-    private String name;
-
+    private String content;
+    private double rating;
 }

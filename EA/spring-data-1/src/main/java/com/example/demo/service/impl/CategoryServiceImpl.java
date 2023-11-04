@@ -17,7 +17,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category getCategoryById(Long id) {
+    public Category getCategoryById(int id) {
         return null;
     }
 

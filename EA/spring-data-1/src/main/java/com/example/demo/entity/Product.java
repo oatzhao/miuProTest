@@ -14,20 +14,18 @@ import java.util.List;
 @Setter
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int productid;
     private String name;
 
     private int price;
     private String category;
     private String color;
-    private double rating;
 
-    @Fetch(FetchMode.JOIN)
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name="product_id")
-    private List<Review> reviews;
+//    @Fetch(FetchMode.SELECT)
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+//    @JoinColumn(name="product_id")
+//    private List<Review> reviews;
 
-    @OneToMany
-    private Order order;
+    @OneToMany(mappedBy = "product")
+    private List<Order> orders;
 }

@@ -10,19 +10,17 @@ public interface ProductService {
 
     void create(Product product);
 
-    List<Product> findAll();
+    List<FullProductDto> findAll();
 
+    FullProductDto findById(int id);
 
-
-    Product getProductById(Long id);
-
-    void delete(Product product);
+    void delete(int id);
 
     void update(Product product);
 
-    List<Product> findAllByPriceGreaterThan(int minPrice);
+    List<FullProductDto> findAllByPriceGreaterThan(int minPrice);
 
-    List<Product> findAllByNameContains(String keyword);
+    List<FullProductDto> findAllByNameContains(String keyword);
 
-    FullProductDto findById(Long id);
+
 }

@@ -11,10 +11,10 @@ import java.util.List;
 @Setter
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int categoryid;
     private String name;
-    @OneToMany
-    @JoinColumn(name="category_id")
-    private List<Product> products;
+
+//    @JoinColumn(name="category_id")
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+//    private List<Product> products;
 }

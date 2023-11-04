@@ -11,5 +11,5 @@ import lombok.Setter;
 @Setter
 public class Course {
     @EmbeddedId
-    private CourseID id;
+    private CourseID courseID;
 }

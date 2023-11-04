@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.ReviewDto;
 import com.example.demo.entity.Review;
 import com.example.demo.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,12 @@ public class ReviewController {
     }
 
     @GetMapping
-    public List<Review> getAll() {
+    public List<ReviewDto > getAll() {
         return reviewService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Review getReviewById(@PathVariable Long id) {
+    public ReviewDto getReviewById(@PathVariable int id) {
         return reviewService.getReviewById(id);
     }
 
@@ -34,8 +35,7 @@ public class ReviewController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        Review review = reviewService.getReviewById(id);
-        reviewService.delete(review);
+    public void delete(@PathVariable int id) {
+        reviewService.delete(id);
     }
 }

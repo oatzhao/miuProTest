@@ -17,13 +17,13 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping
-    public List<Product> findAll(){
+    public List<FullProductDto> findAll(){
         return productService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Product findById(@PathVariable Long id){
-        return productService.getProductById(id);
+    public FullProductDto findById(@PathVariable int id){
+        return productService.findById(id);
     }
 
     @PostMapping
@@ -32,9 +32,8 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable Long id){
-        Product product = productService.getProductById(id);
-        productService.delete(product);
+    public void deleteById(@PathVariable int id){
+        productService.delete(id);
     }
 
     @PutMapping("/{id}")

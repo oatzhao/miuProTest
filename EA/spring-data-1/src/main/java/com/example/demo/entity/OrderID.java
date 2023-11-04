@@ -5,10 +5,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Embeddable
 public class OrderID implements Serializable {
-
+    private int userId;
+    private int productId;
+    private LocalDateTime orderDateTime;
 }

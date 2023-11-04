@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Address;
 import com.example.demo.entity.Category;
 
 import java.util.List;
@@ -12,7 +11,7 @@ public interface CategoryService {
 
 
 
-    Category getCategoryById(Long id);
+    Category getCategoryById(int id);
 
     void delete(Category category);
 

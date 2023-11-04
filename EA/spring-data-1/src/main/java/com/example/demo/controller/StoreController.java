@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.FullProductDto;
+import com.example.demo.dto.ReviewDto;
 import com.example.demo.entity.Category;
 import com.example.demo.entity.Product;
 import com.example.demo.entity.Review;
@@ -17,8 +19,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/store")
 public class StoreController {
-    @Autowired
-    private CategoryService categoryService;
 
     @Autowired
     private ProductService productService;
@@ -27,24 +27,22 @@ public class StoreController {
     private ProductService reviewService;
 
     @GetMapping("/findAllByPriceGreaterThan")
-    public List<Product> findAllByPriceGreaterThan(@RequestParam int minPrice) {
+    public List<FullProductDto> findAllByPriceGreaterThan(@RequestParam int minPrice) {
         return productService.findAllByPriceGreaterThan(minPrice);
     }
 
     @GetMapping("/findAllProductsInCatCategoryAndLessThanMaxPrice")
-    public List<Product> findAllByNameContains(@RequestParam String cat, @RequestParam int maxPrice) {
-        Category category = categoryService.findByName(cat);
-        return category.getProducts().stream().filter(p -> p.getPrice() < maxPrice).collect(Collectors.toList());
+    public List<FullProductDto> findAllByNameContains(@RequestParam String cat, @RequestParam int maxPrice) {
+        return null;
     }
 
     @GetMapping("/findAllByNameContains")
-    public List<Product> findAllByNameContains(@RequestParam String keyword) {
+    public List<FullProductDto> findAllByNameContains(@RequestParam String keyword) {
         return productService.findAllByNameContains(keyword);
     }
 
     @GetMapping("/findAllReviewsByProductId")
-    public List<Review> findAllByNameContains(@RequestParam Long id) {
-        Product product = productService.getProductById(id);
-        return product.getReviews();
+    public List<ReviewDto> findAllByNameContains(@RequestParam int id) {
+         return  null;
     }
 }

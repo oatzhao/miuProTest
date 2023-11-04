@@ -10,7 +10,6 @@ import lombok.Setter;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int personid;
 
 }
