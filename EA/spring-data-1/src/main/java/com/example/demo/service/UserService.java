@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.UserDto;
 import com.example.demo.entity.Review;
 import com.example.demo.entity.User;
 
@@ -17,4 +18,6 @@ public interface UserService {
     void delete(User user);
 
     void update(User user);
+
+    UserDto addUser(UserDto userDto) throws Exception;
 }

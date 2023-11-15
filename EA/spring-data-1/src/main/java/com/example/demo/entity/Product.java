@@ -21,10 +21,10 @@ public class Product {
     private String category;
     private String color;
 
-//    @Fetch(FetchMode.SELECT)
-//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-//    @JoinColumn(name="product_id")
-//    private List<Review> reviews;
+    @Fetch(FetchMode.SELECT)
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name="product_id")
+    private List<Review> reviews;
 
     @OneToMany(mappedBy = "product")
     private List<Order> orders;
